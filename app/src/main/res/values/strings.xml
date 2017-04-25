@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Musical Structure</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="now_playing">Now playing</string>
+    <string name="artists">Artists</string>
+    <string name="favourites">Favourites</string>
+    <string name="now_playing_description">In this section you can see currently playing songs.</string>
+    <string name="favourites_description">Your favourite songs will be stored here.</string>
+    <string name="artist_description">A list of artists will be shown here.</string>
+</resources>
