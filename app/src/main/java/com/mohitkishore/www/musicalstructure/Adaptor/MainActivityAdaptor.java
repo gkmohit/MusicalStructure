@@ -26,19 +26,15 @@ public class MainActivityAdaptor extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 1: {
-                return new NowPlayingFragment();
-            }
-            case 2: {
-                return new ArtistsFragment();
-            }
-            case 3: {
-                return new FavouriteSongsFragments();
-            }
+        if (position == 1) {
+            return new NowPlayingFragment();
+        } else if (position == 1) {
+            return new ArtistsFragment();
+        } else {
+            return new FavouriteSongsFragments();
         }
-        return null;
     }
+
 
     @Override
     public int getCount() {
@@ -47,17 +43,13 @@ public class MainActivityAdaptor extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 1: {
-                return mContext.getString(R.string.now_playing);
-            }
-            case 2: {
-                return mContext.getString(R.string.artists);
-            }
-            case 3: {
-                return mContext.getString(R.string.favourites);
-            }
+        if (position == 1) {
+            return mContext.getString(R.string.now_playing);
         }
-        return null;
+        if (position == 2) {
+            return mContext.getString(R.string.artists);
+        } else {
+            return mContext.getString(R.string.favourites);
+        }
     }
 }
