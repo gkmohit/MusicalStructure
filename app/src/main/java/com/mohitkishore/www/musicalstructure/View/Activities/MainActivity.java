@@ -2,39 +2,72 @@ package com.mohitkishore.www.musicalstructure.View.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-import com.mohitkishore.www.musicalstructure.Adaptor.MainActivityAdaptor;
 import com.mohitkishore.www.musicalstructure.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button mArtistsButton;
+    private Button mNowPlayingButton;
+    private Button mFavouritesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
-            // Activity was brought to front and not created,
-            // Thus finishing this will get us to the last viewed activity
-            finish();
-            return;
-        }
-        // Find the view pager that will allow the user to swipe between fragments
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-
-        // Create an adapter that knows which fragment should be shown on each page
-        MainActivityAdaptor mainPageAdaptor = new MainActivityAdaptor(MainActivity.this, getSupportFragmentManager());
-        // Set the adapter onto the view pager
-        viewPager.setAdapter(mainPageAdaptor);
-
-        //Find the tab layout
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-
-        //Set the tab layout with view pager
-        tabLayout.setupWithViewPager(viewPager);
+        initViews();
+        setListeners();
     }
+
+    private void initViews() {
+        mArtistsButton = (Button) findViewById(R.id.artistsButton);
+        mNowPlayingButton = (Button) findViewById(R.id.nowPlayingButton);
+        mFavouritesButton = (Button) findViewById(R.id.favouritesButton);
+    }
+
+    private void setListeners() {
+        mArtistsButton.setOnClickListener(this);
+        mNowPlayingButton.setOnClickListener(this);
+        mFavouritesButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.artistsButton: {
+                artistsButtonClick();
+                break;
+            }
+            case R.id.nowPlayingButton: {
+                nowPlayingButtonClick();
+                break;
+            }
+            case R.id.favouritesButton: {
+                favouritesButtonClick();
+                break;
+            }
+        }
+    }
+
+    private void artistsButtonClick() {
+        startActivityHelper(ArtistsActivity.class);
+    }
+
+    private void nowPlayingButtonClick() {
+        startActivityHelper(NowPlayingActivity.class);
+    }
+
+    private void favouritesButtonClick() {
+        startActivityHelper(FavouriteSongsActivity.class);
+    }
+
+    private void startActivityHelper(Class<?> cls) {
+        Intent intent = new Intent(MainActivity.this, cls);
+        startActivity(intent);
+    }
+
 }

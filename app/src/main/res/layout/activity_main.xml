@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mohitkishore.www.musicalstructure.View.Activities.MainActivity"
-    android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+    android:orientation="vertical"
+    tools:context="com.mohitkishore.www.musicalstructure.View.Activities.MainActivity">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/sliding_tabs"
-            style="@style/CategoryTab"
-            android:layout_width="match_parent"
-            app:tabTextColor="@color/colorSecondaryBackground"
-            app:tabSelectedTextColor="@color/colorPrimaryLight"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/nowPlayingButton"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/now_playing"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/favouritesButton"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favourites"/>
+
+        <Button
+            android:id="@+id/artistsButton"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/artists"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

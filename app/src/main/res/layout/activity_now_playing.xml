@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mohitkishore.www.musicalstructure.View.Fragments.FavouriteSongsFragments">
+    tools:context="com.mohitkishore.www.musicalstructure.View.Activities.NowPlayingActivity">
+
 
     <TextView
         style="@style/TextViewStyle"
@@ -12,6 +13,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:gravity="center"
-        android:text="@string/favourites_description"/>
+        android:text="@string/now_playing_description"/>
 
 </RelativeLayout>
